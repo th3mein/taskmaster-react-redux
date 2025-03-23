@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ROLES } from "../../config/roles";
 
 /* UI */
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import {
   Card,
   CardContent,
@@ -96,91 +96,89 @@ const NewUserForm = () => {
   });
 
   return (
-    <>
-      <Card className="md:mx-auto md:w-3xl mt-20 mx-4">
-        <CardHeader>
-          <CardTitle>Create a New User</CardTitle>
-          <CardDescription>
-            {isError && (
-              <p
-                className={`mt-4 text-red-600 flex align-middle`}
-                aria-live="assertive"
-              >
-                <ShieldAlert className="mr-2" width={18} height={18} />
-                {"data" in error
-                  ? `Error: ${(error.data as { message: string }).message}`
-                  : "An error occurred"}
-              </p>
-            )}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={onSaveUserClicked}>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="username">
-                  Username *<span className="nowrap">[3-20 letters]</span>
-                </Label>
-                <Input
-                  id="username"
-                  name="username"
-                  autoComplete="off"
-                  value={username}
-                  onChange={onUsernameChanged}
-                  placeholder="User name"
-                  className={validUserClass}
-                />
-              </div>
-
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="password">
-                  Password *
-                  <span className="nowrap">[4-12 chars incl. !@#$%]</span>
-                </Label>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={password}
-                  onChange={onPasswordChanged}
-                  className={validPwdClass}
-                />
-              </div>
-
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="roles">Roles *</Label>
-                <select
-                  id="roles"
-                  name="roles"
-                  className={`w-[100%] ${validRolesClass} border-1 overflow-hidden leading-3 rounded-md`}
-                  multiple={true}
-                  size={3}
-                  value={roles}
-                  onChange={onRolesChanged}
-                >
-                  {options}
-                </select>
-              </div>
-
-              <div className="space-y-1.5">
-                <Button variant="outline" disabled={!canSave}>
-                  {isLoading ? (
-                    <div className="mt-1">
-                      <Spinner text="Saving new User" />
-                    </div>
-                  ) : (
-                    <>
-                      <SaveIcon />
-                      Save
-                    </>
-                  )}
-                </Button>
-              </div>
+    <Card className="md:mx-auto md:w-3xl mt-20 mx-4">
+      <CardHeader>
+        <CardTitle>Create a New User</CardTitle>
+        <CardDescription>
+          {isError && (
+            <p
+              className={`mt-4 text-red-600 flex align-middle`}
+              aria-live="assertive"
+            >
+              <ShieldAlert className="mr-2" width={18} height={18} />
+              {"data" in error
+                ? `Error: ${(error.data as { message: string }).message}`
+                : "An error occurred"}
+            </p>
+          )}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={onSaveUserClicked}>
+          <div className="grid w-full items-center gap-4">
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="username">
+                Username *<span className="nowrap">[3-20 letters]</span>
+              </Label>
+              <Input
+                id="username"
+                name="username"
+                autoComplete="off"
+                value={username}
+                onChange={onUsernameChanged}
+                placeholder="User name"
+                className={validUserClass}
+              />
             </div>
-          </form>
-        </CardContent>
-      </Card>
-    </>
+
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="password">
+                Password *
+                <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+              </Label>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                value={password}
+                onChange={onPasswordChanged}
+                className={validPwdClass}
+              />
+            </div>
+
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="roles">Roles *</Label>
+              <select
+                id="roles"
+                name="roles"
+                className={`w-[100%] ${validRolesClass} border-1 overflow-hidden leading-3 rounded-md`}
+                multiple
+                size={3}
+                value={roles}
+                onChange={onRolesChanged}
+              >
+                {options}
+              </select>
+            </div>
+
+            <div className="space-y-1.5">
+              <Button variant="outline" disabled={!canSave}>
+                {isLoading ? (
+                  <div className="mt-1">
+                    <Spinner text="Saving new User" />
+                  </div>
+                ) : (
+                  <>
+                    <SaveIcon />
+                    Save
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 export default NewUserForm;

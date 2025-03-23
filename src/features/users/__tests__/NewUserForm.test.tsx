@@ -1,25 +1,34 @@
-import { render } from "@testing-library/react";
-import { screen } from "@testing-library/dom";
-// import userEvent from "@testing-library/user-event";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "../../../app/store";
-import { Provider } from "react-redux";
+import { screen } from "@testing-library/react";
 import NewUserForm from "../NewUserForm";
+import { renderWithProviders } from "@/tests/test.utils";
 
-it("should render disabled save button", async () => {
-  render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <NewUserForm />
-      </BrowserRouter>
-    </Provider>
-  );
-  // expect(screen.getByText(/save/i)).not.toBeDisabled();
+describe("New User Form", () => {
+  it("should render disabled save button", async () => {
+    renderWithProviders(<NewUserForm />);
 
-  const saveButton = screen.getByRole("button", { name: /save/i });
-  expect(saveButton).toBeDisabled();
-  // expect(await screen.findByRole('button', { name: /pay/i })).toBeDisabled();
-  // userEvent.type(screen.getByPlaceholderText(/amount/i), "50");
-  // userEvent.type(screen.getByPlaceholderText(/add a note/i), "dinner");
-  // expect(await screen.findByRole('button', { name: /pay/i })).toBeEnabled();
+    const saveButton = screen.getByRole("button", { name: /save/i });
+    expect(saveButton).toBeDisabled();
+  });
+
+  // it("should enable save button after form is filled", async () => {
+  //   renderWithProviders(<NewUserForm />);
+
+  //   await waitFor(() => {
+  //     const userNameInput = screen.getByRole("textbox", {
+  //       name: /username/i,
+  //     });
+  //     const passwordInput = screen.getByLabelText(/password/i);
+
+  //     fireEvent.change(userNameInput, {
+  //       target: { value: "Antonette" },
+  //     });
+  //     fireEvent.change(passwordInput, {
+  //       target: { value: "@#*domuDD6" },
+  //     });
+
+  //     const saveButton = screen.getByRole("button", { name: /save/i });
+
+  //     expect(saveButton).toBeEnabled();
+  //   });
+  // });
 });

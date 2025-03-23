@@ -73,5 +73,5 @@ body {
   background-image: url("/img/bg.webp");
   background-size: cover;
   background-position: top right;
-  background-blend-mode: soft-light;
+  background-blend-mode: overlay;
 }

@@ -1,5 +1,5 @@
 import { defineConfig } from "vitest/config";
-
+import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   test: {
@@ -7,6 +7,11 @@ export default defineConfig({
     environment: "jsdom",
     // hey! 👋 over here
     globals: true,
-    setupFiles: "./tests/setup.js",
+    setupFiles: "./src/tests/setup.js",
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
 });

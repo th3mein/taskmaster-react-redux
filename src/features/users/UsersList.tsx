@@ -1,7 +1,6 @@
 import { useGetUsersQuery } from "./usersApiSlice";
 import User from "./User";
 import Loading from "@/components/Loading";
-import useTitle from "@/hooks/useTitle";
 
 const UsersList = () => {
   const {
@@ -16,15 +15,13 @@ const UsersList = () => {
     refetchOnMountOrArgChange: true,
   });
 
-  useTitle("React Redux RTK Query - Ticket management system - Users");
-
   let content;
 
   if (isLoading) content = <Loading />;
 
   if (isError) {
     content = (
-      <p className="errmsg">
+      <p className="errmsg" data-testid="error-message">
         {/* {error?.data?.message} */}
         {"data" in error ? `Error: ${error.data}` : "An error occurred"}
       </p>

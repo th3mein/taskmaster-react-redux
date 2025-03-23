@@ -1,21 +1,27 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "./api/apiSlice";
-import { useDispatch } from "react-redux";
-import { setupListeners } from "@reduxjs/toolkit/query";
+
 import authReducer from "../features/auth/authSlice";
 
-export const store = configureStore({
-  reducer: {
-    [apiSlice.reducerPath]: apiSlice.reducer,
-    auth: authReducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
-  devTools: true,
+// Create the root reducer independently to obtain the RootState type
+const rootReducer = combineReducers({
+  [apiSlice.reducerPath]: apiSlice.reducer,
+  auth: authReducer,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export const setupStore = (preloadedState: Partial<RootState>) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(apiSlice.middleware),
+    devTools: true,
+  });
+};
 
-export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-setupListeners(store.dispatch);
+const store = setupStore({});
+export { store };
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore["dispatch"];
