@@ -18,7 +18,7 @@ A small ticketing app built with Vite, Typescript, React 19, Redux, RTK query.
 
 [![Typescript][Typescriptlang.org]][Typescript-url]
 
-[![React][React.js]][React-url]
+[![React][React.dev]][React-url]
 
 [![Redux][Redux.js.org]][Redux-url]
 
@@ -48,6 +48,8 @@ Live at [Github pages](https://th3mein.github.io/taskmaster-react-redux/)
 
 [Typescriptlang.org]: https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square
 [Typescript-url]: https://www.typescriptlang.org/
+[React.dev]: https://shields.io/badge/react-black?logo=react&style=for-the-badge
+[React-url]: https://react.dev/
 [Vite.dev]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white
 [Vite-url]: https://vite.dev/
 [Redux.js.org]: https://img.shields.io/badge/-Redux-black?style=flat-square&logo=redux
