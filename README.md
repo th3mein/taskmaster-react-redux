@@ -1,54 +1,60 @@
-# React + TypeScript + Vite
+<!-- ABOUT THE PROJECT -->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Customer Tickets Management
 
-Currently, two official plugins are available:
+A small ticketing app built with Vite, Typescript, React 19, Redux, RTK query.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Users management CRUD
+- Ticket management CRUD
+- Authentication and Authorization. Role based access.
+  - Only admin and managers can manage users
+  - Employee can view update tickets
+  - Only admin and managers can delete ticket
+- Github workflows - auto deploy to github pages
 
-## Expanding the ESLint configuration
+### Built With
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[![Vite][Vite.dev]][Vite-url]
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+[![Typescript][Typescriptlang.org]][Typescript-url]
+
+[![React][React.js]][React-url]
+
+[![Redux][Redux.js.org]][Redux-url]
+
+[![Tailwind][Tailwind]][Tailwind-url]
+
+### Backend
+
+```
+  https://github.com/th3mein/taskmaster-node
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Tested setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+[![Vitest][Vitest.dev]][Vitest-url]
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+[![RTL][TL.org]][RTL-url]
+
+<!-- GETTING STARTED -->
+
+## See it in action
+
+Live at [Github pages](https://th3mein.github.io/taskmaster-react-redux/)
+
+- _Backend server running free on Render.com. It can take up to a minute to wake up the backend server when logging in the first time, beause it is almost certainly asleep._
+- _Because HashRouter used because Brower router apparntly is not compatible with GH Pages, so it might look/beahave stupidly._
+- _Login with username: admin password: adMin@GG12_
+
+[Typescriptlang.org]: https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square
+[Typescript-url]: https://www.typescriptlang.org/
+[Vite.dev]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white
+[Vite-url]: https://vite.dev/
+[Redux.js.org]: https://img.shields.io/badge/-Redux-black?style=flat-square&logo=redux
+[Redux-url]: https://redux.js.org/
+[Tailwind]: https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss
+[Tailwind-url]: https://tailwindcss.com/
+[Vitest.dev]: https://img.shields.io/badge/vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white
+[Vitest-url]: https://vitest.dev/
+[TL.org]: https://img.shields.io/badge/-Testing%20Library-%23E33332?&style=for-the-badge&logo=testing-library&logoColor=white
+[RTL-url]: https://testing-library.com/
