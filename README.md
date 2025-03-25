@@ -36,6 +36,8 @@ A small ticketing app built with Vite, Typescript, React 19, Redux, RTK query.
 
 [![RTL][TL.org]][RTL-url]
 
+[![Cypress][Cypress.io]][RTL-url]
+
 <!-- GETTING STARTED -->
 
 ## See it in action
@@ -60,3 +62,5 @@ Live at [Github pages](https://th3mein.github.io/taskmaster-react-redux/)
 [Vitest-url]: https://vitest.dev/
 [TL.org]: https://img.shields.io/badge/-Testing%20Library-%23E33332?&style=for-the-badge&logo=testing-library&logoColor=white
 [RTL-url]: https://testing-library.com/
+[Cypress.io]: https://img.shields.io/badge/-cypress-%23E5E5E5?logo=cypress&logoColor=058a5e
+[RTL-url]: https://www.cypress.io/

@@ -28,8 +28,8 @@ const Public = () => {
           <p>Owner: Emilio Murphy</p>
         </main>
         <footer className="mt-10">
-          <Link to="/login">
-            <Button>Employee Login</Button>
+          <Link to="/login" data-testid="go-to-login">
+            <Button name="go-to-login">Employee Login</Button>
           </Link>
         </footer>
       </section>

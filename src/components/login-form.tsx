@@ -123,9 +123,10 @@ export function LoginForm({
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
-                <Label htmlFor="name">User name</Label>
+                <Label htmlFor="username">User name</Label>
                 <Input
-                  id="name"
+                  id="username"
+                  name="username"
                   type="text"
                   placeholder="username"
                   required
