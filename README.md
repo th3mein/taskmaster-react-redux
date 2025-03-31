@@ -30,7 +30,7 @@ A small ticketing app built with Vite, Typescript, React 19, Redux, RTK query.
   https://github.com/th3mein/taskmaster-node
 ```
 
-### Tested setup
+### Test setup
 
 [![Vitest][Vitest.dev]][Vitest-url]
 
